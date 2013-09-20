@@ -12,8 +12,9 @@ Gem::Specification.new do |s|
     'LICENSE',
     'simple_ad_auth.gemspec',
   ],
+  s.require_paths = ["lib"]
 
-  s.add_dependency('net-ldap')
+  s.add_dependency('net-ldap', "~> 0.3.1")
 
-  s.add_development_dependency('rpsec', "~> 2.8.0")
+  s.add_development_dependency('rspec', "~> 2.8.0")
 end
