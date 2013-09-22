@@ -1,5 +1,6 @@
 require 'simple_ad_auth/config'
 require 'simple_ad_auth/connection'
+require 'simple_ad_auth/user'
 
 module SimpleADAuth
   class InvalidCredentials < Exception
@@ -8,8 +9,9 @@ module SimpleADAuth
   class Timeout < ::Timeout::Error
   end
 
+  @config = nil
+
   def self.configure
-    @connection = nil
     @config = Config.new
     yield @config
   end
@@ -24,8 +26,7 @@ module SimpleADAuth
       :base => @config.search_root,
       :filter => Net::LDAP::Filter.eq('sAMAccountName', username)
     )[0]
-    groups = entry[:memberof].map { |e| e.split(',')[0].split('=')[1] }
-    {'groups' => groups}
+    return User.new(entry)
   end
 
 end

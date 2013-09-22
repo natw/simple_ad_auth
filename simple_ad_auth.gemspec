@@ -16,5 +16,6 @@ Gem::Specification.new do |s|
 
   s.add_dependency('net-ldap', "~> 0.3.1")
 
-  s.add_development_dependency('rspec', "~> 2.8.0")
+  s.add_development_dependency('rake')
+  s.add_development_dependency('rspec', "~> 2.14.0")
 end
