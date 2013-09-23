@@ -2,6 +2,7 @@ require 'simple_ad_auth/config'
 require 'simple_ad_auth/connection'
 require 'simple_ad_auth/user'
 
+# This is where the magic happens
 module SimpleADAuth
   class InvalidCredentials < Exception
   end

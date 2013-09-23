@@ -16,3 +16,7 @@ RSpec::Core::RakeTask.new(:spec) do |spec|
 end
 
 task :default => :spec
+
+require 'yard'
+YARD::Rake::YardocTask.new do |t|
+end
